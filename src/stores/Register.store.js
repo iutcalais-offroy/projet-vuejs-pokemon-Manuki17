@@ -14,20 +14,26 @@ export const useRegisterStore = defineStore('register', () => {
         passwordConfirmed: ''
     });
 
+    // -- Stocke le succès de la création --
+    const registerResult = ref({
+        success: false
+    });
+
     // -- Envoie des données à l'API si le mot de passe est vérifié --
     const registerState = async () => {
         if (registerData.value.password === registerData.value.passwordConfirmed) {
             try {
                 await registerUser(registerData.value.email, registerData.value.password);
-                console.log("Création réussie :");
+                console.log("✅ Création réussie");
+                registerResult.value.success = true;
             } catch (error) {
-                console.error("Erreur lors de la création :", error);
+                console.error("❌ Erreur lors de la création :", error);
             }
         }
         else {
-            console.log("Erreur, les mots de passe ne sont pas identiques.");
+            console.log("❌ Erreur, les mots de passe ne sont pas identiques.");
         }
     }
 
-    return { registerData, registerState };
+    return { registerResult, registerData, registerState };
 })

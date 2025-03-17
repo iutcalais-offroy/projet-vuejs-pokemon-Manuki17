@@ -24,7 +24,7 @@ const changeTab = (tab) => {
 
         <!-- Onglet de connexion -->
         <n-tab-pane name="login" tab="Connexion">
-          <LoginFormComponent/>
+          <LoginFormComponent @switchToDeck=""/>
 
           <!-- Redirection à l'inscription -->
           <n-text>
@@ -34,7 +34,7 @@ const changeTab = (tab) => {
 
         <!-- Onglet d'inscription -->
         <n-tab-pane name="register" tab="Inscription">
-          <RegisterFormComponent/>
+          <RegisterFormComponent  @switchToLogin="changeTab('login')"/>
 
           <!-- Redirection à la connexion -->
           <n-text>
@@ -53,5 +53,4 @@ const changeTab = (tab) => {
   height: 25rem;
   text-decoration: solid;
 }
-
 </style>

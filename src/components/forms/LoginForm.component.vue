@@ -6,7 +6,8 @@
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
 import { useLoginStore } from '../../stores/Login.store.js';
-import { NForm, NFormItem, NInput, NButton } from 'naive-ui'
+import { NForm, NFormItem, NInput, NButton } from 'naive-ui';
+import { router } from '../../router.js';
 
 const loginStore = useLoginStore();
 const { loginData } = storeToRefs(loginStore);
@@ -15,8 +16,14 @@ const { loginData } = storeToRefs(loginStore);
 async function submitLogin() {
   try {
     await loginStore.loginState();
+
+    if (loginData.id != '' && loginData.token != '') {
+      localStorage.setItem("token", loginData.token);
+      localStorage.setItem("idUser", loginData.id);
+      router.push('/deck-builder');
+    }
   } catch (error) {
-    console.error("Échec de la connexion :", error);
+    console.error("⚠️ Échec lors de la connexion :", error);
   }
 }
 // ---------------------------------------

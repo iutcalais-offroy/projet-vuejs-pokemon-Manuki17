@@ -7,16 +7,24 @@
 import { useRegisterStore } from '../../stores/Register.store.js';
 import { NForm, NFormItem, NInput, NButton } from 'naive-ui';
 import { storeToRefs } from 'pinia';
+import { defineEmits } from 'vue';
 
 const registerStore = useRegisterStore();
-const { registerData } = storeToRefs(registerStore);
+const { registerResult, registerData } = storeToRefs(registerStore);
+
+const emit = defineEmits(["switchToLogin"]);
 
 // -- Envoie les données du formulaire au Store --
 async function submitRegister() {
   try {
     await registerStore.registerState();
+
+    // Redirection en cas de succès
+    if (registerResult.value.success === true) {
+      emit("switchToLogin");
+    }
   } catch (error) {
-    console.error("Échec de la création :", error);
+    console.error("⚠️ Échec lors de la création :", error);
   }
 }
 // ---------------------------------------
