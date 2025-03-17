@@ -25,6 +25,7 @@ declare module 'vue' {
     NPageBody: typeof import('naive-ui')['NPageBody']
     NPageHeader: typeof import('naive-ui')['NPageHeader']
     NSpace: typeof import('naive-ui')['NSpace']
+    NText: typeof import('naive-ui')['NText']
     'RegisterForm.component': typeof import('./src/components/forms/RegisterForm.component.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

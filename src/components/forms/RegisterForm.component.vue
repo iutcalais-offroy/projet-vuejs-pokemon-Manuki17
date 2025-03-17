@@ -1,6 +1,11 @@
+<!------------------------------
+--- Projet Vue JS ~ Pokémon ---
+-- Manon Chagot --
+- BUT 2 app -
+----------->
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { NForm, NFormItem, NInput, NButton, NText } from 'naive-ui'
+import { ref } from 'vue';
+import { NForm, NFormItem, NInput, NButton } from 'naive-ui'
 
 const loginData = ref({
   email: '',
@@ -45,13 +50,6 @@ function submitLogin() {
         <n-button type="primary" @click="submitLogin">
           S'inscrire
         </n-button>
-      </n-form-item>
-
-      <!-- Redirection à la connexion -->
-      <n-form-item>
-        <n-text>
-          Déjà inscrit ? <a href="/login">Se connecter</a>
-        </n-text>
       </n-form-item>
     </n-form>
   </div>

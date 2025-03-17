@@ -1,7 +1,12 @@
+<!------------------------------
+--- Projet Vue JS ~ Pokémon ---
+-- Manon Chagot --
+- BUT 2 app -
+----------->
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
 import { useLoginStore } from '../../stores/Login.store.js';
-import { NForm, NFormItem, NInput, NButton, NText } from 'naive-ui'
+import { NForm, NFormItem, NInput, NButton } from 'naive-ui'
 
 const loginStore = useLoginStore();
 const { loginData } = storeToRefs(loginStore);
@@ -10,7 +15,6 @@ const { loginData } = storeToRefs(loginStore);
 async function submitLogin() {
   try {
     await loginStore.loginState();
-    console.log("Connexion réussie :", loginData.value);
   } catch (error) {
     console.error("Échec de la connexion :", error);
   }
@@ -43,13 +47,6 @@ async function submitLogin() {
         <n-button type="primary" @click="submitLogin">
           Se connecter
         </n-button>
-      </n-form-item>
-
-      <!-- Redirection à l'inscription -->
-      <n-form-item>
-        <n-text>
-          Pas de compte ? <a href="/register">S'inscrire</a>
-        </n-text>
       </n-form-item>
     </n-form>
   </div>
