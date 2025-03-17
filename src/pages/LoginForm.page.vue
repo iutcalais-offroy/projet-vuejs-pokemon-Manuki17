@@ -49,7 +49,9 @@ const changeTab = (tab) => {
 
 <style scoped>
 .tabs-form{
-  width: 100%;
+  width: 15rem;
+  height: 25rem;
   text-decoration: solid;
 }
+
 </style>

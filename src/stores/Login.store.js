@@ -17,7 +17,7 @@ export const useLoginStore = defineStore('login', () => {
     const loginState = async () => {
         try {
             await loginUser(loginData.value.email, loginData.value.password);  
-            console.log("Connexion réussie :", loginData.value);
+            console.log("Connexion réussie :");
         } catch (error) {
             console.error("Erreur lors de la connexion :", error);
         }

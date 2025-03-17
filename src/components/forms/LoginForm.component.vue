@@ -37,6 +37,7 @@ async function submitLogin() {
       <!-- Mot de passe -->
       <n-form-item label="Mot de passe">
         <n-input
+          type="password"
           v-model:value="loginData.password"
           placeholder="Entrez votre mot de passe"
         />
@@ -51,3 +52,9 @@ async function submitLogin() {
     </n-form>
   </div>
 </template>
+
+<style>
+.n-button {
+  width: 100%;
+}
+</style>
