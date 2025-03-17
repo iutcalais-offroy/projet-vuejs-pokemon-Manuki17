@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    'DeckBuilder.compenent': typeof import('./src/components/DeckBuilder.compenent.vue')['default']
     'HeaderMenu.component': typeof import('./src/components/HeaderMenu.component.vue')['default']
     'LoginForm.component': typeof import('./src/components/forms/LoginForm.component.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
