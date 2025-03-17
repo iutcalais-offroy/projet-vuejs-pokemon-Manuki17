@@ -1,8 +1,12 @@
+/*------------------------------
+--- Projet Vue JS ~ Pokémon ---
+-- Manon Chagot --
+- BUT 2 app -
+-----------*/
 import {createRouter, createWebHistory} from 'vue-router'
 import DeckCollectionPage from './pages/DeckCollection.page.vue'
 import DeckBuilder from './pages/DeckBuilder.page.vue'
 import LoginFormPage from './pages/LoginForm.page.vue'
-
 
 const routes = [
     {path: '/', component: LoginFormPage},
